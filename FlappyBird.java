@@ -22,5 +22,10 @@ public class FlappyBird extends Actor
             dy= -15; 
         }
         dy = dy + g;  
+        
+        if(this.getY()> 400){
+        System.out.println("Game Over");
+        Greenfoot.stop(); 
+    }
     }    
 }
