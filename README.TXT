@@ -1,12 +1,22 @@
-------------------------------------------------------------------------
-This is the project README file. Here, you should describe your project.
-Tell the reader (someone who does not know anything about this project)
-all he/she needs to know. The comments should usually include at least:
-------------------------------------------------------------------------
+Greenfoot version: 3.5.3
 
-PROJECT TITLE:
-PURPOSE OF PROJECT:
-VERSION or DATE:
-HOW TO START THIS PROJECT:
-AUTHORS:
-USER INSTRUCTIONS:
+Information about Greenfoot
+-----------------------
+Information about Greenfoot, including system documentation is available at
+
+  http://www.greenfoot.org/
+
+Greenfoot usage data
+--------------------
+When you use Greenfoot, some anonymous non-personal information (Greenfoot 
+version, Java version, Operating System, interface language, etc) is sent 
+to the Greenfoot maintainers, to help with development planning. This can 
+be disabled by adding a "greenfoot.uid=private" setting to your 
+greenfoot.properties file. 
+
+The Greenfoot Team
+--------------
+Greenfoot is being developed by:
+King's College London: Michael Kölling, Davin McCall, Neil Brown, Amjad Altadmri
+
+The copyright (c) for Greenfoot is held by P. Henriksen and M. Kölling.
