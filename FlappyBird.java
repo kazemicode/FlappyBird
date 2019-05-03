@@ -8,8 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class FlappyBird extends Actor
 {
-    double dy = -20;
-    double g = 2;
+    double dy = -15;
+    double g = 1;
+    double BOOST_SPEED = -15;
     /**
      * Act - do whatever the FlappyBird wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -20,13 +21,23 @@ public class FlappyBird extends Actor
         
         if (Greenfoot.isKeyDown("up") == true)
         {
-            dy = -15;
+            dy = BOOST_SPEED;
         }
         dy = dy + g;
         
+        if (dy >= -10 && dy <= 10);
+        {
+            setRotation(30);
+            {
+                if (dy >= -30 && dy <= 0)
+                turn(-60);
+            }
+        }
+        
         if(this.getY() > 400)
         {
-            System.out.println("Game over!");
+            GameOver gameOver = new GameOver(); 
+            getWorld().addObject(gameOver, getWorld().getWidth()/2, getWorld().getHeight()/2);
             Greenfoot.stop();
         
         }
