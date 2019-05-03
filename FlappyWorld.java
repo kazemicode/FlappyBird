@@ -8,9 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class FlappyWorld extends World
 {
-
- 
-    
+  int counter = 0;
     
     
     
@@ -34,4 +32,23 @@ public class FlappyWorld extends World
         FlappyBird flappyBird = new FlappyBird();
         addObject(flappyBird,100, getHeight()/2);
     }
-}
+    
+    public void act()
+    {
+        counter++;
+        if (counter == 100) {
+            //create a pipe object
+            Pipe pipe = new Pipe();
+            
+            GreenfootImage image = pipe.getImage();
+            
+            addObject(pipe, getWidth(), getHeight()/2 + image.getHeight() - 20 );
+            
+        System.out.println(counter);
+        counter = 0;
+
+    }
+    
+   }   
+}    
+    
