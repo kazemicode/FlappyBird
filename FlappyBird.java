@@ -21,24 +21,27 @@ public class FlappyBird extends Actor
         
         //if we are touching a pipe, then Gameover
         if (getOneIntersectingObject(Pipe.class) != null)  {
-             GameOver gameOver = new GameOver(); 
+          GameOver gameOver = new GameOver(); 
             getWorld().addObject(gameOver, getWorld().getWidth()/2, getWorld().getHeight()/2);
             
             Greenfoot.stop();
+        
         
         }
         if (Greenfoot.isKeyDown("up") == true) {
             dy = BOOST_SPEED;
         }
         
-        if (dy >= -10 && dy >= 10); {
-            // set angle to 30
-            setRotation(-10);
-        if (dy <= -30 && dy <= 0);{
-             turn(-25);
+        if (dy >= -10 && dy <= 10);
+        {
+            setRotation(25);
+          {
+            if (dy >= -30 && dy <= 0)
+             turn(-60);
           }
         }
 
+       
         
         
         // flappy drops out of world then game over
