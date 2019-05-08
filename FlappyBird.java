@@ -9,7 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class FlappyBird extends Actor
 {
     double dy = 0;
-    double g = 1.3;
+    double g = 0.5;
+    double BOOST_SPEED = -5;
     
     
     /**
@@ -22,13 +23,23 @@ public class FlappyBird extends Actor
         
         if(Greenfoot.isKeyDown("up") == true){
             
-           dy = -15; 
+           dy = BOOST_SPEED; 
         }
+         
+        if(dy < 10 && dy>-10){
+            
+        setRotation(-20);
+        
+        
+        }
+        
+        
         
         dy = dy + g;
         if(this.getY() > 400)
         {
-         System.out.println("Game Over");
+         GameOver gameOver = new GameOver();
+         getWorld().addObject(gameOver,getWorld().getWidth()/2,getWorld().getHeight()/2);
         Greenfoot.stop();
             
         
