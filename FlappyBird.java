@@ -18,6 +18,14 @@ public class FlappyBird extends Actor
     public void act() 
     {
         setLocation(getX(), (int)(getY() + dy));
+        // collision detection -- if flappy hits a pipe, lose!
+        if (getOneIntersectingObject(Pipe.class) != null)
+        {
+            GameOver gameOver = new GameOver(); 
+            getWorld().addObject(gameOver, getWorld().getWidth()/2, getWorld().getHeight()/2);
+            Greenfoot.stop();
+        }
+      
         
         if (Greenfoot.isKeyDown("up") == true)
         {
