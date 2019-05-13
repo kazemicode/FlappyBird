@@ -9,8 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class FlappyBird extends Actor
 {
     double dy = 0;
-    double g = 1.3;
-    double BOOST_SPEED = -9;
+    double g = 0.7;
+    double BOOST_SPEED = -8;
     /**
      * Act - do whatever the FlappyBird wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
