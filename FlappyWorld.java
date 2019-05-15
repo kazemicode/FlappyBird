@@ -12,6 +12,8 @@ public class FlappyWorld extends World
     int score = 0;  
     int FIRST_PIPE = 230;
     int flappyCounter = 0;
+    int Score = 0;
+    score ScoreObj = null;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -22,7 +24,13 @@ public class FlappyWorld extends World
         super(600, 400, 1, false); 
         prepare();
         //set paint order
-        setPaintOrder(Pipe.class,FlappyBird.class, GameOver.class);
+        setPaintOrder(GameOver.class, score.class, FlappyBird.class, Pipe.class);
+        //
+        
+        ScoreObj = new score();
+        ScoreObj.setscore(0);
+        
+        addObject(ScoreObj, 300, 50);
     }
 
     /**
@@ -45,10 +53,10 @@ public class FlappyWorld extends World
             Pipe pipeup = new Pipeup();
             
             GreenfootImage image = pipe.getImage();
-            GreenfootImage image2 = pipeup.getImage();
+            addObject(pipe, getWidth(), getHeight() + Greenfoot.getRandomNumber( image.getHeight())/2);
             
-            addObject(pipe, getWidth(), getHeight()/2 + image2.getHeight() - 100 );
-            addObject(pipeup, getWidth(), getHeight()/2 + image2.getHeight()  - 500);
+            GreenfootImage pipeImage = pipe.getImage();
+            addObject(pipeup, getWidth(), Greenfoot.getRandomNumber(image.getHeight())/10 - 10);
             
                 //           System.out.println(counter);
             
@@ -58,8 +66,8 @@ public class FlappyWorld extends World
     
     if (pipeCounter >= FIRST_PIPE) {
         if (flappyCounter % 100 == 0) {
-            score++;
-            System.out.println(score);
+            Score++;
+            ScoreObj.setscore(Score);
         }
         flappyCounter++;
         }    
