@@ -24,6 +24,12 @@ public class FlappyWorld extends World
     }
     public void act () {
       counter ++;
-      System.out.println(counter);
+     if (counter == 100 ) {
+        pipe Pippy = new pipe();
+        GreenfootImage image = Pippy.getImage();
+        addObject(Pippy, getWidth(), getHeight()/2 + image.getHeight()/2);
+        System.out.println(counter);
+        counter = 0;
+    }
     }
 }

@@ -22,6 +22,11 @@ public class FlappyBird extends Actor
         if (Greenfoot.isKeyDown("up") == true) {
             dy = BOOST_SPEED;
         }
+        if (getOneIntersectingObject(pipe.class) != null) {
+            GameOver gameOver = new GameOver();
+            getWorld().addObject(gameOver, getWorld().getWidth()/2, getWorld().getHeight()/2);
+            Greenfoot.stop();
+        }
         
         if ( dy < -10 || dy > 10 ) 
         {
