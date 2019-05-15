@@ -14,6 +14,7 @@ public class FlappyWorld extends World
     int PIPE_SPACING = 100;
     int score = 0;
     int FIRST_PIPE = 240;
+    Score scoreObj = null;
     /**
      * Constructor for objects of class FlappyWorld.
      * 
@@ -23,11 +24,16 @@ public class FlappyWorld extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1, false); 
         
-        setPaintOrder(Pipe.class, FlappyBird.class, GameOver.class); 
+        setPaintOrder(Pipe.class, Score.class, FlappyBird.class, GameOver.class); 
         
         FlappyBird flappy = new FlappyBird();
         
         addObject(flappy, 100, getHeight()/2);
+        
+        scoreObj = new Score();
+        scoreObj.setScore(0);
+        
+        addObject(scoreObj, 100, 100);
     }
     public void act()
     {
@@ -45,7 +51,7 @@ public class FlappyWorld extends World
             if (flappyCounter % 100 == 0)
             {
             score++;
-            System.out.println(score);
+            scoreObj.setScore(score);
         }
         flappyCounter++;
         }
@@ -59,11 +65,12 @@ public class FlappyWorld extends World
            Pipe top = new TopPipe();
                Pipe bottom = new BottomPipe();
            // create top pipe and place it at the top
-           GreenfootImage image = top.getImage();
-           addObject(top, getWidth(), getHeight()/20);
+           GreenfootImage image = bottom.getImage();
+           addObject(bottom, getWidth(), getHeight() + Greenfoot.getRandomNumber(image.getHeight())/2);
+           
                // create bottom pipe and place it at the bottom
            GreenfootImage bottomImage = bottom.getImage();
-           addObject(bottom, getWidth(), getHeight());
+           addObject(top, getWidth(), Greenfoot.getRandomNumber(image.getHeight())/10 - 10);
            //pipeCounter = 0;
         }
     }
