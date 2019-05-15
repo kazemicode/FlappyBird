@@ -1,21 +1,25 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import lang.stride.*;
+import greenfoot.*;
 
 /**
- * Write a description of class MyWorld here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Write a description of class FlappyWorld here.
+ * @author (your name) @version (a version number or a date)
  */
 public class FlappyWorld extends World
 {
 
+    /* (World, Actor, GreenfootImage, Greenfoot and MouseInfo)*/
+
     /**
-     * Constructor for objects of class MyWorld.
-     * 
+     * Constructor for objects of class FlappyWorld.
      */
     public FlappyWorld()
-    {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+    {
+        super(500, 400, 1, false);
+        /* Create a new world with 600x400 cells with a cell size of 1x1 pixels.*/
+        FlappyBird flappy = new FlappyBird();
+        addObject(flappy, 100, getHeight()/2);
+        
+        
     }
 }
