@@ -1,12 +1,16 @@
 #Greenfoot project file
 class.FlappyBird.image=flappybird1.png
+class.FlappyWorld.image=flappy_background.png
 class.GameOver.image=game_over.png
+dependency1.from=FlappyWorld
+dependency1.to=FlappyBird
+dependency1.type=UsesDependency
 editor.fx.0.height=716
-editor.fx.0.width=800
-editor.fx.0.x=240
-editor.fx.0.y=23
+editor.fx.0.width=898
+editor.fx.0.x=234
+editor.fx.0.y=516
 height=545
-package.numDependencies=0
+package.numDependencies=1
 package.numTargets=3
 project.charset=UTF-8
 publish.hasSource=false

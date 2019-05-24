@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class FlappyWorld extends World
 {
+   
 
     /**
      * Constructor for objects of class MyWorld.
@@ -16,6 +17,14 @@ public class FlappyWorld extends World
     public FlappyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+        super(600, 400, 1, false); 
+        
+        
+       //create a flappybird object
+       FlappyBird mcflapface = new FlappyBird();
+       
+       //add flappy to our world
+       addObject(mcflapface, 100, getHeight()/2);
+       
     }
 }
