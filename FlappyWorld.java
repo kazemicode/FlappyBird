@@ -12,6 +12,7 @@ public class FlappyWorld extends World
     int flappyCounter = 0;
     int PIPE_SPACING = 150;
     int score = 0;
+    Score s = null;
     int FIRST_PIPE = 240;
     
 
@@ -25,7 +26,11 @@ public class FlappyWorld extends World
         super(600, 400, 1, false); 
         prepare();
         
-        setPaintOrder(Pipe.class, FlappyBird.class, GameOver.class);
+        setPaintOrder(Pipe.class, Score.class, FlappyBird.class, GameOver.class);
+        
+        s = new Score();
+        s.setScore(score);
+        addObject(s, 100, 20);
         
         
     }
@@ -43,15 +48,15 @@ public class FlappyWorld extends World
     public void act() {
         pipeCounter++;
         
-        if (pipeCounter % 100 == 0) {
+        if (pipeCounter % PIPE_SPACING == 0) {
             createPipes();
         }  
         
         
         if (pipeCounter >= FIRST_PIPE) {
-            if (flappyCounter % 100 == 0) {
+            if (flappyCounter % PIPE_SPACING == 0) {
                 score++;
-                System.out.println(score);
+                s.setScore(score);
             }
             flappyCounter++;
         }
