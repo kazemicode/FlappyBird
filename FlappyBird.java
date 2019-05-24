@@ -14,6 +14,6 @@ public class FlappyBird extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
+        // Add your action code here...
     }    
 }
