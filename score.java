@@ -1,6 +1,4 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import java.awt.Color;
-import jawa.awt.Font;
 /**
  * Write a description of class score here.
  * 
@@ -17,12 +15,12 @@ public class Score extends Actor
         GreenfootImage newImage = getImage();
         newImage.clear();
         
-        Font f = new Font("Arial", Font.PLAIN,32);
+        Font f = new Font("Arial",32);
         newImage.setFont(f);
         Color c = new Color(127, 127, 127, 127);        
         newImage.setColor(c);
         newImage.fill();
-        newImage.setColor(Color.black);
+        newImage.setColor(Color.BLACK);
         newImage.drawString(""+score, 30, 30);
         setImage(newImage);
     }
