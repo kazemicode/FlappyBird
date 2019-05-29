@@ -19,30 +19,45 @@ public class FlappyBird extends Actor
      */
     public void act() 
     {
-        setLocation( getX(),(int)(getY() + dy));
         
+        
+        if(getOneIntersectingObject(Pipe.class) != null){
+            
+            displayGameOver();
+        }
+        setLocation( getX(),(int)(getY() + dy));
         if(Greenfoot.isKeyDown("up") == true){
             
            dy = BOOST_SPEED; 
         }
          
-        if(dy < 10 && dy>-10){
+        if(dy < 10 && dy > 0){
             
         setRotation(-20);
         
         
         }
         
+        else if (dy > -10 && dy < 0)
+        {
+            setRotation(20);
+        }
+           
+        
         
         
         dy = dy + g;
         if(this.getY() > 400)
         {
-         GameOver gameOver = new GameOver();
-         getWorld().addObject(gameOver,getWorld().getWidth()/2,getWorld().getHeight()/2);
-        Greenfoot.stop();
+        displayGameOver();
             
         
     }
-    }    
+     
+}
+private void displayGameOver(){
+        GameOver gameOver = new GameOver();
+         getWorld().addObject(gameOver,getWorld().getWidth()/2,getWorld().getHeight()/2);
+        Greenfoot.stop();
+    }   
 }

@@ -6,15 +6,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class pipe extends Actor
+public class Pipe extends Actor
 {
     int PIPE_SPEED = -4;
+    int SPACE_BETWEEN_PIPES = 5;
     /**
      * Act - do whatever the pipe wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-        setLocation(getX() +PIPE_SPEED, getY());
-    }    
+        
+        setLocation(getX() + PIPE_SPEED, getY());
+
+    }  
 }
