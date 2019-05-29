@@ -18,9 +18,6 @@ public class FlappyBird extends Actor
      */
     public void act() 
     {
-        rotateFlappyBird();
-        setLocation( getX(), (int)(getY() + dy));
-        
         //If we are touching a pipe, then Game Over
         if (getOneIntersectingObject(Pipe.class) != null)
         {
@@ -39,17 +36,21 @@ public class FlappyBird extends Actor
         {
             setRotation(20);
         }
-        dy = dy + g;
         // If FlappyBird drops out of the world, 
         if(this.getY() > 400)
         {
             displayGameOver();
         }
+        dy = dy + g;
     }
     private void displayGameOver()
     {
         GameOver gameOver = new GameOver();
-            getWorld().addObject(gameOver,getWorld().getWidth()/2,getWorld().getHeight()/2);
-            Greenfoot.stop();
-        }        
+        getWorld().addObject(gameOver,getWorld().getWidth()/2,getWorld().getHeight()/2);
+        Greenfoot.stop();
+        } 
+    private void rotateFlappyBird()
+    {
+        
+    }    
 }
