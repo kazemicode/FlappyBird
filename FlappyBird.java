@@ -9,8 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class FlappyBird extends Actor
 {
     double dy = 0;
-    double g = 1.3;
-    double BOOST_SPEED = -15;
+    double g = 0.5;
+    double BOOST_SPEED = -5;
     
     /**
      * Act - do whatever the FlappyBird wants to do. This method is called whenever
@@ -22,7 +22,8 @@ public class FlappyBird extends Actor
         if (getOneIntersectingObject(Pipe.class) != null)
         {
             displayGameOver();
-        }    
+        }
+        setLocation( getX(), (int)(getY() + dy));
         // If user pressed UP arrow, launch Flappy Bird upward
         if (Greenfoot.isKeyDown("up") == true)
         {
@@ -36,12 +37,12 @@ public class FlappyBird extends Actor
         {
             setRotation(20);
         }
+        dy = dy + g;
         // If FlappyBird drops out of the world, 
         if(this.getY() > 400)
         {
             displayGameOver();
         }
-        dy = dy + g;
     }
     private void displayGameOver()
     {

@@ -9,10 +9,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class FlappyWorld extends World
 {
     int pipeCounter = 0;
-    int flappyCounter = 0;
-    int PIPE_SPACING = 150;
     int score = 0;
     int FIRST_PIPE = 240;
+    int flappyCounter = 0;
+    Score scoreObj = null;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -23,13 +23,21 @@ public class FlappyWorld extends World
         super(600, 400, 1, false); 
         
         //Set paint order
-        setPaintOrder(Pipe.class, FlappyBird.class, GameOver.class);
+        setPaintOrder(GameOver.class, Score.class, FlappyBird.class, Pipe.class);
         
         // Create a FlappyBird Object
         FlappyBird flappy = new FlappyBird();
         
         // Add flappy to our world
         addObject(flappy, 100, getHeight()/2);
+        prepare();
+        
+        // Create a Score Object
+        scoreObj = new Score();
+        scoreObj.setScore(score);
+        
+        // Add it to our world
+        addObject(scoreObj, 100, 100);
     }
     
     public void act()
@@ -45,7 +53,7 @@ public class FlappyWorld extends World
             if (flappyCounter % 100 == 0)
            {
                 score++;
-                System.out.println(score);
+                scoreObj.setScore(score);
            }
            flappyCounter++;
         }   
@@ -60,5 +68,9 @@ public class FlappyWorld extends World
         
         addObject(pipe, getWidth(), getHeight() + Greenfoot.getRandomNumber(image.getHeight() -2));
         addObject(top, getWidth(), Greenfoot.getRandomNumber(image.getHeight()/10));
+    } 
+    private void prepare()
+    {
+        
     }    
 }
