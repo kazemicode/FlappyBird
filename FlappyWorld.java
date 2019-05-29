@@ -12,6 +12,7 @@ public class FlappyWorld extends World
     int score = 0;
     int FIRST_PIPE = 240;
     int flappyCounter = 0;
+    Score scoreObj = null;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -28,9 +29,9 @@ public class FlappyWorld extends World
         addObject(flappy,100,getHeight()/2);
         prepare();
         
-        Score score = new Score();
-        
-        addObject(score, 100, 100);
+        scoreObj = new Score();
+        scoreObj.setScore(0);
+        addObject(scoreObj, 100, 100);
         
     }
 
@@ -45,7 +46,7 @@ public class FlappyWorld extends World
         if(pipeCounter >= FIRST_PIPE){
            if(flappyCounter % 100 == 0){
            score++;
-           System.out.println(score);
+           scoreObj.setScore(score);
         
         }
          flappyCounter++;
