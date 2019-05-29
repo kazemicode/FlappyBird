@@ -1,10 +1,10 @@
 #Greenfoot project file
 class.FlappyBird.image=flappybird1.png
 class.GameOver.image=game_over.png
-editor.fx.0.height=716
-editor.fx.0.width=800
-editor.fx.0.x=240
-editor.fx.0.y=23
+editor.fx.0.height=0
+editor.fx.0.width=0
+editor.fx.0.x=0
+editor.fx.0.y=0
 height=545
 package.numDependencies=0
 package.numTargets=3
@@ -45,6 +45,5 @@ target3.x=0
 target3.y=0
 version=3.0.0
 width=849
-world.lastInstantiated=FlappyWorld
-xPosition=257
-yPosition=128
+xPosition=923
+yPosition=316
