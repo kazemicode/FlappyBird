@@ -10,7 +10,8 @@ public class FlappyBird extends Actor
 {
     double dy = 0;
     double g = 1.3;
-    double BOOST_SPEED = -15;
+    double BOOST_SPEED = -8;
+    int counter = 1;
    
     /**
      * Act - do whatever the FlappyBird wants to do. This method is called whenever
@@ -21,11 +22,20 @@ public class FlappyBird extends Actor
         // Add your action code here.
         setLocation( getX(), (int)getY() + (int) dy );
         
+    if (getOneIntersectingObject(Bottompipe.class)  != null) {
+        GameOver gameOver = new GameOver ();
+            getWorld().addObject(gameOver, getWorld().getWidth()/2, getWorld().getHeight()/2);
+            
+            
+            Greenfoot.stop();
+        
+    }    
+        
         if (Greenfoot.isKeyDown("up") == true) {
             dy = BOOST_SPEED;
     }
     
-if (dy > -10 && dy< 10)  {
+    if (dy > -10 && dy< 10)  {
         setRotation(-25);
 
         
@@ -42,6 +52,8 @@ if (dy > -10 && dy< 10)  {
 
         }
     }    
+    
+     
 }
 
 

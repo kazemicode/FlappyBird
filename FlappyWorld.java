@@ -1,4 +1,4 @@
-import lang.stride.*;
+
 import greenfoot.*;
 
 /**
@@ -7,6 +7,8 @@ import greenfoot.*;
  */
 public class FlappyWorld extends World
 {
+    int counter = 0;
+    
 
     /* (World, Actor, GreenfootImage, Greenfoot and MouseInfo)*/
 
@@ -22,4 +24,16 @@ public class FlappyWorld extends World
         
         
     }
+    
+    public void act()  { 
+           counter++;
+           
+           if (counter % 100 == 0)  { 
+               Bottompipe pippy = new Bottompipe();
+               
+               addObject(pippy, getWidth(), getHeight());
+           //System.out.println(counter);
+           counter = 0;
+    } 
+}
 }
