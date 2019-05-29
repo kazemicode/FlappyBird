@@ -18,8 +18,14 @@ public class FlappyBird extends Actor
      */
     public void act() 
     {
+        rotateFlappyBird();
         setLocation( getX(), (int)(getY() + dy));
         
+        //If we are touching a pipe, then Game Over
+        if (getOneIntersectingObject(Pipe.class) != null)
+        {
+            displayGameOver();
+        }    
         // If user pressed UP arrow, launch Flappy Bird upward
         if (Greenfoot.isKeyDown("up") == true)
         {
@@ -27,27 +33,23 @@ public class FlappyBird extends Actor
         }
         if (dy < 10 && dy > 0)
         {
-            setRotation(30);
+            setRotation(-20);
         }
-        else if ( )
+        else if (dy > -10 && dy < 0)
         {
-            a
+            setRotation(20);
         }
-        else if ( )
-        {
-            a
-        }    
+        dy = dy + g;
         // If FlappyBird drops out of the world, 
         if(this.getY() > 400)
         {
             displayGameOver();
         }
-        dy = dy + g;
     }
     private void displayGameOver()
     {
         GameOver gameOver = new GameOver();
-        getWorld().addObject(gameOver,getWorld().getWidth()/2,getWorld().getHeight()/2);
-        Greenfoot.stop();
-    }    
+            getWorld().addObject(gameOver,getWorld().getWidth()/2,getWorld().getHeight()/2);
+            Greenfoot.stop();
+        }        
 }

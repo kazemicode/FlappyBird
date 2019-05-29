@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class FlappyWorld extends World
 {
-
+    int counter = 0;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -24,4 +24,19 @@ public class FlappyWorld extends World
         // Add flappy to our world
         addObject(flappy, 100, getHeight()/2);
     }
+    
+    public void act()
+    {
+        counter++;
+        if (counter == 100)
+        {
+            // Create a pipe object
+            Pipe pippy = new Pipe();
+            
+            GreenfootImage image = pippy.getImage();
+            
+            addObject(pippy, getWidth(), getHeight()/2 + image.getHeight()-20);
+            counter = 0;
+        }    
+    }    
 }
